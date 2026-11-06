@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem-Solving & Resourcefulness Activity</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col justify-between">
+
+    <!-- Top Navigation Header -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-sm">
+        <div class="max-w-4xl mx-auto px-4 py-4 flex flex-wrap justify-between items-center gap-4">
+            <div class="flex items-center space-x-3">
+                <div class="bg-indigo-600 text-white p-2 rounded-xl flex items-center justify-center w-10 h-10 shadow-md shadow-indigo-100">
+                    <i class="fa-solid fa-lightbulb text-lg"></i>
+                </div>
+                <div>
+                    <h1 class="font-bold text-lg text-slate-900 leading-tight">Resourcefulness Workshop</h1>
+                    <p class="text-xs text-slate-500">Interactive Reflection & Problem Solving</p>
+                </div>
+            </div>
+
+            <!-- Progress Tracker -->
+            <div class="flex items-center space-x-6">
+                <div class="flex flex-col items-end">
+                    <span class="text-xs font-semibold uppercase tracking-wider text-slate-400">Progress</span>
+                    <span id="progress-text" class="text-sm font-bold text-indigo-600">Step 1 of 3</span>
+                </div>
+                <div class="w-32 bg-slate-100 h-2.5 rounded-full overflow-hidden border border-slate-200">
+                    <div id="progress-bar" class="bg-indigo-600 h-full w-1/3 transition-all duration-500 ease-out"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="max-w-4xl w-full mx-auto px-4 py-8 flex-grow">
+        
+        <!-- Step Navigation Tabs -->
+        <div class="flex justify-between items-center mb-8 border-b border-slate-200 pb-2 overflow-x-auto">
+            <button onclick="goToStep(1)" id="tab-step-1" class="step-tab font-medium text-sm px-4 py-2 border-b-2 border-indigo-600 text-indigo-600 flex items-center gap-2 whitespace-nowrap transition-colors">
+                <span class="w-6 h-6 rounded-full bg-indigo-600 text-white text-xs flex items-center justify-center font-bold">1</span>
+                Activity 1: Spot Barriers
+            </button>
+            <button onclick="goToStep(2)" id="tab-step-2" class="step-tab font-medium text-sm px-4 py-2 border-b-2 border-transparent text-slate-400 hover:text-slate-600 flex items-center gap-2 whitespace-nowrap transition-colors">
+                <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-600 text-xs flex items-center justify-center font-bold">2</span>
+                Activity 2: Action Scenario
+            </button>
+            <button onclick="goToStep(3)" id="tab-step-3" class="step-tab font-medium text-sm px-4 py-2 border-b-2 border-transparent text-slate-400 hover:text-slate-600 flex items-center gap-2 whitespace-nowrap transition-colors">
+                <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-600 text-xs flex items-center justify-center font-bold">3</span>
+                Review & Export
+            </button>
+        </div>
+
+        <!-- SECTION 1: ACTIVITY 1 -->
+        <section id="section-step-1" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200/80 transition-all">
+            <div class="mb-6">
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-indigo-50 text-indigo-700 mb-3 border border-indigo-100">
+                    <i class="fa-solid fa-brain mr-1.5"></i> Self Reflection
+                </span>
+                <h2 class="text-2xl font-bold text-slate-900">Activity 1: Spot Your Barriers</h2>
+                <p class="text-slate-600 mt-1">Think about the last time you struggled to start a task or solve a problem.</p>
+            </div>
+
+            <!-- Guiding Questions Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                <div class="bg-amber-50/60 border border-amber-200/60 p-4 rounded-xl">
+                    <div class="flex items-center space-x-2 text-amber-800 font-semibold mb-1">
+                        <i class="fa-solid fa-hand text-amber-600"></i>
+                        <span>The Stumbling Block</span>
+                    </div>
+                    <p class="text-xs text-amber-900/80">What was holding you back when attempting this task?</p>
+                </div>
+                <div class="bg-blue-50/60 border border-blue-200/60 p-4 rounded-xl">
+                    <div class="flex items-center space-x-2 text-blue-800 font-semibold mb-1">
+                        <i class="fa-solid fa-tags text-blue-600"></i>
+                        <span>Root Cause</span>
+                    </div>
+                    <p class="text-xs text-blue-900/80">Was it <strong>emotional</strong>, <strong>logistical</strong>, or related to <strong>communication</strong>?</p>
+                </div>
+                <div class="bg-emerald-50/60 border border-emerald-200/60 p-4 rounded-xl">
+                    <div class="flex items-center space-x-2 text-emerald-800 font-semibold mb-1">
+                        <i class="fa-solid fa-rotate-left text-emerald-600"></i>
+                        <span>Alternative Approach</span>
+                    </div>
+                    <p class="text-xs text-emerald-900/80">How could you have used your resources differently to overcome it?</p>
+                </div>
+            </div>
+
+            <!-- Reflection Editor -->
+            <div class="space-y-2">
+                <div class="flex justify-between items-center">
+                    <label for="act1-reflection" class="block font-semibold text-slate-800 text-sm">
+                        Write your reflection below:
+                    </label>
+                    <span id="act1-word-count" class="text-xs font-medium text-slate-500 bg-slate-100 px-2.5 py-1 rounded-full">
+                        0 / 100-150 words
+                    </span>
+                </div>
+                <textarea id="act1-reflection" rows="7" 
+                    class="w-full p-4 rounded-xl border border-slate-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-slate-800 placeholder-slate-400 text-sm leading-relaxed transition shadow-inner"
+                    placeholder="Describe your situation here. E.g., Last week I was working on a project but kept delaying starting because..."></textarea>
+                
+                <div id="act1-validation-msg" class="hidden text-xs flex items-center gap-1.5 pt-1">
+                    <!-- Dynamic feedback will render here -->
+                </div>
+            </div>
+
+            <div class="mt-8 flex justify-end">
+                <button onclick="goToStep(2)" class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium px-6 py-2.5 rounded-xl shadow-md shadow-indigo-100 flex items-center gap-2 transition hover:-translate-y-0.5">
+                    Next: Activity 2 <i class="fa-solid fa-arrow-right text-xs"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- SECTION 2: ACTIVITY 2 -->
+        <section id="section-step-2" class="hidden bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200/80 transition-all">
+            <div class="mb-6">
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-indigo-50 text-indigo-700 mb-3 border border-indigo-100">
+                    <i class="fa-solid fa-users-gear mr-1.5"></i> Practical Scenario Analysis
+                </span>
+                <h2 class="text-2xl font-bold text-slate-900">Activity 2: Getting Started with Resources</h2>
+            </div>
+
+            <!-- Scenario Card -->
+            <div class="bg-gradient-to-r from-slate-900 to-indigo-950 text-white p-6 rounded-2xl mb-8 shadow-lg relative overflow-hidden">
+                <div class="absolute -right-6 -bottom-6 w-32 h-32 bg-indigo-500 opacity-20 rounded-full blur-2xl"></div>
+                <div class="flex items-start gap-4">
+                    <div class="bg-white/10 p-3 rounded-xl border border-white/10 text-amber-300">
+                        <i class="fa-solid fa-triangle-exclamation text-xl"></i>
+                    </div>
+                    <div>
+                        <span class="text-xs font-semibold text-indigo-300 uppercase tracking-widest">Scenario Brief</span>
+                        <p class="mt-1 text-slate-100 font-medium leading-relaxed text-base">
+                            "You are asked to organize a group presentation in five days, but two team members are unavailable on the same day, and no one replies to your messages."
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Task Form -->
+            <div class="space-y-8">
+                
+                <!-- Part A: Barriers -->
+                <div class="bg-slate-50 p-5 rounded-xl border border-slate-200">
+                    <h3 class="font-bold text-slate-900 mb-1 flex items-center gap-2">
+                        <span class="w-6 h-6 rounded-full bg-indigo-100 text-indigo-700 text-xs flex items-center justify-center font-bold">A</span>
+                        Identify 3 Barriers from this scenario
+                    </h3>
+                    <p class="text-xs text-slate-500 mb-4">What main obstacles are preventing progress?</p>
+                    
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-2">
+                            <span class="text-xs font-bold text-slate-400 w-5">1.</span>
+                            <input type="text" id="act2-barrier-1" placeholder="e.g., Communication breakdown / unresponsive team members" 
+                                class="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-xs font-bold text-slate-400 w-5">2.</span>
+                            <input type="text" id="act2-barrier-2" placeholder="e.g., Tight deadline (5 days)" 
+                                class="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-xs font-bold text-slate-400 w-5">3.</span>
+                            <input type="text" id="act2-barrier-3" placeholder="e.g., Scheduling conflicts / overlapping unavailability" 
+                                class="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Part B: Resources -->
+                <div class="bg-slate-50 p-5 rounded-xl border border-slate-200">
+                    <h3 class="font-bold text-slate-900 mb-1 flex items-center gap-2">
+                        <span class="w-6 h-6 rounded-full bg-indigo-100 text-indigo-700 text-xs flex items-center justify-center font-bold">B</span>
+                        List 3 Resources to overcome them
+                    </h3>
+                    <p class="text-xs text-slate-500 mb-4">Think about tools, contacts, or personal skills (e.g., scheduling apps, tutor advice, negotiation).</p>
+                    
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-2">
+                            <span class="text-xs font-bold text-slate-400 w-5">1.</span>
+                            <input type="text" id="act2-resource-1" placeholder="e.g., Scheduling tool (Doodle / Calendly)" 
+                                class="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-xs font-bold text-slate-400 w-5">2.</span>
+                            <input type="text" id="act2-resource-2" placeholder="e.g., Alternative channel (calling directly or setting up an async document)" 
+                                class="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-xs font-bold text-slate-400 w-5">3.</span>
+                            <input type="text" id="act2-resource-3" placeholder="e.g., Negotiation & delegation skills (assigning asynchronous sections)" 
+                                class="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Part C: Reframing -->
+                <div class="bg-slate-50 p-5 rounded-xl border border-slate-200">
+                    <h3 class="font-bold text-slate-900 mb-1 flex items-center gap-2">
+                        <span class="w-6 h-6 rounded-full bg-indigo-100 text-indigo-700 text-xs flex items-center justify-center font-bold">C</span>
+                        Reframing the Situation
+                    </h3>
+                    <label for="act2-reframe" class="block text-xs text-slate-500 mb-3">How would you reframe this situation positively to get started productively?</label>
+                    
+                    <textarea id="act2-reframe" rows="3" 
+                        class="w-full p-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-slate-800 placeholder-slate-400 text-sm"
+                        placeholder="e.g., Instead of viewing this as a failure of communication, I can see it as an opportunity to set clear async working structures early and lead the project proactive step-by-step..."></textarea>
+                </div>
+
+            </div>
+
+            <!-- Navigation Actions -->
+            <div class="mt-8 flex justify-between items-center">
+                <button onclick="goToStep(1)" class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium px-5 py-2.5 rounded-xl border border-slate-300 flex items-center gap-2 transition">
+                    <i class="fa-solid fa-arrow-left text-xs"></i> Back
+                </button>
+                <button onclick="goToStep(3)" class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium px-6 py-2.5 rounded-xl shadow-md shadow-indigo-100 flex items-center gap-2 transition hover:-translate-y-0.5">
+                    Review Summary <i class="fa-solid fa-arrow-right text-xs"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- SECTION 3: REVIEW & EXPORT -->
+        <section id="section-step-3" class="hidden bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200/80 transition-all">
+            <div class="mb-6 flex justify-between items-start flex-wrap gap-4">
+                <div>
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 mb-3 border border-emerald-100">
+                        <i class="fa-solid fa-circle-check mr-1.5"></i> Final Review
+                    </span>
+                    <h2 class="text-2xl font-bold text-slate-900">Your Activity Summary</h2>
+                    <p class="text-slate-600 mt-1">Review your completed entries below before saving or submitting.</p>
+                </div>
+                
+                <div class="flex items-center gap-3">
+                    <button onclick="copyToClipboard()" class="bg-white hover:bg-slate-50 text-slate-700 border border-slate-300 font-medium px-4 py-2 rounded-xl text-sm flex items-center gap-2 shadow-sm transition">
+                        <i class="fa-regular fa-copy"></i> Copy Response
+                    </button>
+                    <button onclick="downloadSummary()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium px-4 py-2 rounded-xl text-sm flex items-center gap-2 shadow-sm transition">
+                        <i class="fa-solid fa-download"></i> Download Text
+                    </button>
+                </div>
+            </div>
+
+            <!-- Summary Content Display -->
+            <div id="summary-container" class="space-y-6">
+                
+                <!-- Act 1 Summary Card -->
+                <div class="border border-slate-200 rounded-xl p-5 bg-slate-50/50">
+                    <h3 class="font-bold text-slate-900 text-base mb-2 border-b border-slate-200 pb-2 flex items-center justify-between">
+                        <span>Activity 1: Spot Your Barriers (Reflection)</span>
+                        <button onclick="goToStep(1)" class="text-xs text-indigo-600 font-normal hover:underline">Edit</button>
+                    </h3>
+                    <div id="summary-act1" class="text-sm text-slate-700 whitespace-pre-wrap leading-relaxed italic bg-white p-4 rounded-lg border border-slate-200 text-slate-600">
+                        No reflection submitted yet.
+                    </div>
+                </div>
+
+                <!-- Act 2 Summary Card -->
+                <div class="border border-slate-200 rounded-xl p-5 bg-slate-50/50">
+                    <h3 class="font-bold text-slate-900 text-base mb-3 border-b border-slate-200 pb-2 flex items-center justify-between">
+                        <span>Activity 2: Scenario Analysis</span>
+                        <button onclick="goToStep(2)" class="text-xs text-indigo-600 font-normal hover:underline">Edit</button>
+                    </h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <div class="bg-white p-4 rounded-lg border border-slate-200">
+                            <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Identified Barriers</h4>
+                            <ul id="summary-act2-barriers" class="text-sm text-slate-700 space-y-1.5 list-disc list-inside">
+                                <li class="text-slate-400 italic">None provided</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-white p-4 rounded-lg border border-slate-200">
+                            <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Selected Resources</h4>
+                            <ul id="summary-act2-resources" class="text-sm text-slate-700 space-y-1.5 list-disc list-inside">
+                                <li class="text-slate-400 italic">None provided</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg border border-slate-200">
+                        <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Reframed Perspective</h4>
+                        <p id="summary-act2-reframe" class="text-sm text-slate-700 italic">No reframing strategy provided.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Toast / Copy Alert Message -->
+            <div id="toast-msg" class="hidden mt-4 p-3 bg-emerald-100 border border-emerald-300 text-emerald-800 text-sm rounded-xl flex items-center justify-center gap-2">
+                <i class="fa-solid fa-circle-check"></i> <span id="toast-text">Content copied to clipboard!</span>
+            </div>
+
+            <div class="mt-8 flex justify-between items-center">
+                <button onclick="goToStep(2)" class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium px-5 py-2.5 rounded-xl border border-slate-300 flex items-center gap-2 transition">
+                    <i class="fa-solid fa-arrow-left text-xs"></i> Back
+                </button>
+                <button onclick="resetActivity()" class="text-rose-600 hover:text-rose-700 font-medium text-sm px-4 py-2 flex items-center gap-1">
+                    <i class="fa-solid fa-rotate-right text-xs"></i> Start Over
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Simple Footer -->
+    <footer class="bg-white border-t border-slate-200 py-4 mt-8">
+        <div class="max-w-4xl mx-auto px-4 text-center text-xs text-slate-400">
+            Resourcefulness & Problem Solving Online Activity • Designed for Interactive Learning
+        </div>
+    </footer>
+
+    <!-- Logic Script -->
+    <script>
+        let currentStep = 1;
+
+        // Activity 1 Word Counter & Validation
+        const act1Textarea = document.getElementById('act1-reflection');
+        const act1WordCount = document.getElementById('act1-word-count');
+        const act1ValidationMsg = document.getElementById('act1-validation-msg');
+
+        act1Textarea.addEventListener('input', updateWordCount);
+
+        function updateWordCount() {
+            const text = act1Textarea.value.trim();
+            const words = text ? text.split(/\s+/).length : 0;
+            
+            act1WordCount.textContent = `${words} / 100-150 words`;
+
+            if (words === 0) {
+                act1WordCount.className = "text-xs font-medium text-slate-500 bg-slate-100 px-2.5 py-1 rounded-full";
+                act1ValidationMsg.className = "hidden";
+            } else if (words < 100) {
+                act1WordCount.className = "text-xs font-medium text-amber-700 bg-amber-50 px-2.5 py-1 rounded-full border border-amber-200";
+                act1ValidationMsg.className = "text-xs text-amber-600 flex items-center gap-1.5 pt-1";
+                act1ValidationMsg.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> Keep going! Aim for at least 100 words (${100 - words} more needed).`;
+            } else if (words <= 150) {
+                act1WordCount.className = "text-xs font-medium text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200";
+                act1ValidationMsg.className = "text-xs text-emerald-600 flex items-center gap-1.5 pt-1";
+                act1ValidationMsg.innerHTML = `<i class="fa-solid fa-circle-check"></i> Great length! Within target length (100–150 words).`;
+            } else {
+                act1WordCount.className = "text-xs font-medium text-amber-700 bg-amber-50 px-2.5 py-1 rounded-full border border-amber-200";
+                act1ValidationMsg.className = "text-xs text-amber-600 flex items-center gap-1.5 pt-1";
+                act1ValidationMsg.innerHTML = `<i class="fa-solid fa-info-circle"></i> Slightly long (${words} words), but feel free to continue or refine.`;
+            }
+        }
+
+        // Navigation Controller
+        function goToStep(step) {
+            currentStep = step;
+
+            // Hide all sections
+            document.getElementById('section-step-1').classList.add('hidden');
+            document.getElementById('section-step-2').classList.add('hidden');
+            document.getElementById('section-step-3').classList.add('hidden');
+
+            // Show selected section
+            document.getElementById(`section-step-${step}`).classList.remove('hidden');
+
+            // Update Header Progress Bar
+            const progressBar = document.getElementById('progress-bar');
+            const progressText = document.getElementById('progress-text');
+            
+            if (step === 1) {
+                progressBar.style.width = '33%';
+                progressText.textContent = 'Step 1 of 3';
+            } else if (step === 2) {
+                progressBar.style.width = '66%';
+                progressText.textContent = 'Step 2 of 3';
+            } else {
+                progressBar.style.width = '100%';
+                progressText.textContent = 'Step 3 of 3';
+                generateSummary();
+            }
+
+            // Update Tab Styles
+            for (let i = 1; i <= 3; i++) {
+                const tab = document.getElementById(`tab-step-${i}`);
+                const badge = tab.querySelector('span');
+
+                if (i === step) {
+                    tab.className = "step-tab font-medium text-sm px-4 py-2 border-b-2 border-indigo-600 text-indigo-600 flex items-center gap-2 whitespace-nowrap transition-colors";
+                    badge.className = "w-6 h-6 rounded-full bg-indigo-600 text-white text-xs flex items-center justify-center font-bold";
+                } else {
+                    tab.className = "step-tab font-medium text-sm px-4 py-2 border-b-2 border-transparent text-slate-400 hover:text-slate-600 flex items-center gap-2 whitespace-nowrap transition-colors";
+                    badge.className = "w-6 h-6 rounded-full bg-slate-200 text-slate-600 text-xs flex items-center justify-center font-bold";
+                }
+            }
+
+            // Scroll to top smooth
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Generate Summary Screen Content
+        function generateSummary() {
+            // Activity 1
+            const act1Val = document.getElementById('act1-reflection').value.trim();
+            document.getElementById('summary-act1').textContent = act1Val || "No reflection written.";
+
+            // Activity 2 Barriers
+            const b1 = document.getElementById('act2-barrier-1').value.trim();
+            const b2 = document.getElementById('act2-barrier-2').value.trim();
+            const b3 = document.getElementById('act2-barrier-3').value.trim();
+            
+            const barriersList = document.getElementById('summary-act2-barriers');
+            barriersList.innerHTML = '';
+            [b1, b2, b3].filter(b => b.length > 0).forEach(b => {
+                const li = document.createElement('li');
+                li.textContent = b;
+                barriersList.appendChild(li);
+            });
+            if (!barriersList.children.length) {
+                barriersList.innerHTML = '<li class="text-slate-400 italic">No barriers entered</li>';
+            }
+
+            // Activity 2 Resources
+            const r1 = document.getElementById('act2-resource-1').value.trim();
+            const r2 = document.getElementById('act2-resource-2').value.trim();
+            const r3 = document.getElementById('act2-resource-3').value.trim();
+
+            const resourcesList = document.getElementById('summary-act2-resources');
+            resourcesList.innerHTML = '';
+            [r1, r2, r3].filter(r => r.length > 0).forEach(r => {
+                const li = document.createElement('li');
+                li.textContent = r;
+                resourcesList.appendChild(li);
+            });
+            if (!resourcesList.children.length) {
+                resourcesList.innerHTML = '<li class="text-slate-400 italic">No resources entered</li>';
+            }
+
+            // Activity 2 Reframing
+            const reframeVal = document.getElementById('act2-reframe').value.trim();
+            document.getElementById('summary-act2-reframe').textContent = reframeVal || "No reframing strategy written.";
+        }
+
+        // Export Helper: Compile Text Content
+        function getFormattedText() {
+            const act1 = document.getElementById('act1-reflection').value.trim();
+            const b1 = document.getElementById('act2-barrier-1').value.trim();
+            const b2 = document.getElementById('act2-barrier-2').value.trim();
+            const b3 = document.getElementById('act2-barrier-3').value.trim();
+            
+            const r1 = document.getElementById('act2-resource-1').value.trim();
+            const r2 = document.getElementById('act2-resource-2').value.trim();
+            const r3 = document.getElementById('act2-resource-3').value.trim();
+            const reframe = document.getElementById('act2-reframe').value.trim();
+
+            return `=== PROBLEM-SOLVING & RESOURCEFULNESS WORKSHOP ===\n\n` +
+                `--- ACTIVITY 1: SPOT YOUR BARRIERS ---\n` +
+                `Reflection:\n${act1 || '(None)'}\n\n` +
+                `--- ACTIVITY 2: GETTING STARTED WITH RESOURCES ---\n` +
+                `Scenario: Group presentation in 5 days, members unavailable, no replies.\n\n` +
+                `Barriers:\n1. ${b1 || '-'}\n2. ${b2 || '-'}\n3. ${b3 || '-'}\n\n` +
+                `Resources:\n1. ${r1 || '-'}\n2. ${r2 || '-'}\n3. ${r3 || '-'}\n\n` +
+                `Reframing Strategy:\n${reframe || '(None)'}\n`;
+        }
+
+        // Copy Clipboard Strategy (Fallback safe)
+        function copyToClipboard() {
+            const content = getFormattedText();
+            const textarea = document.createElement('textarea');
+            textarea.value = content;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+
+            showToast("Copied worksheet summary to clipboard!");
+        }
+
+        // Download Summary Text file
+        function downloadSummary() {
+            const textContent = getFormattedText();
+            const blob = new Blob([textContent], { type: 'text/plain;charset=utf-8;' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'Resourcefulness_Activity_Summary.txt';
+            link.click();
+            URL.revokeObjectURL(link.href);
+        }
+
+        // Toast Notification
+        function showToast(message) {
+            const toast = document.getElementById('toast-msg');
+            const toastText = document.getElementById('toast-text');
+            toastText.textContent = message;
+            toast.classList.remove('hidden');
+
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 3000);
+        }
+
+        // Reset All
+        function resetActivity() {
+            if (confirm("Are you sure you want to reset your answers? Your text will be cleared.")) {
+                document.getElementById('act1-reflection').value = '';
+                document.getElementById('act2-barrier-1').value = '';
+                document.getElementById('act2-barrier-2').value = '';
+                document.getElementById('act2-barrier-3').value = '';
+                document.getElementById('act2-resource-1').value = '';
+                document.getElementById('act2-resource-2').value = '';
+                document.getElementById('act2-resource-3').value = '';
+                document.getElementById('act2-reframe').value = '';
+                
+                updateWordCount();
+                goToStep(1);
+            }
+        }
+    </script>
+</body>
+</html>
